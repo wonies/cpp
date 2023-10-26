@@ -5,6 +5,14 @@ struct Point
 {
     int xpos;
     int ypos;
+
+    enum
+    {
+        ID_LEN = 20,
+        MAX_SPEED = 200,
+        FUEL_STEP = 20,
+        ACC_STEP = 10    
+    };
     
     void MovePos(int x, int y)
     {
