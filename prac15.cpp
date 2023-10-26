@@ -16,10 +16,10 @@ int main(void)
     strcpy(c, b);
     cout<<"cpy :"<<c<<endl;
 
-    if (strcmp(a, b))
-        cout<<"is it same??"<<a<<endl;
+    if (strcmp(c, b))
+        cout<<"is it not same??"<<a<<endl;
     else
-        cout<<"is it not same??"<<b<<endl;
+        cout<<"is it same??"<<b<<endl;
     return 0;
-    
+
 }
