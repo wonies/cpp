@@ -7,28 +7,36 @@ namespace CAR_CONST
 {
     enum
     {
-        #define ID_LEN 20
-        #define MAXC_SPD 200
-        #define FUEL_STEP 2
-        #define ACC_STEP 10
-        #define BRK_STEP 10
+        ID_LEN = 20,
+        MAXC_SPD = 200,
+        FUEL_STEP = 2,
+        ACC_STEP = 10,
+        BRK_STEP = 10
     };
 }
 
 class Car
 {
 private:
-    char gamerID[ID_LEN];
+    char gamerID[CAR_CONST::ID_LEN];
     int fuelGauge;
     int carSpeed;
 
 public:
+    void InitMembers(char *ID, int fuel);
     void ShowCarState();
     void Accel();
     void Break();
 
 
 };
+
+void Car::InitMembers(char *ID, int fuel)
+{
+    strcpy(gamerID, ID);
+    fuelGauge = fuel;
+    carSpeed = 0;
+}
 
 void    Car::ShowCarState()
 {
@@ -42,31 +50,37 @@ void Car::Accel()
     if (fuelGauge <=0)
         return ;
     else 
-        fuelGauge-=FUEL_STEP;
-    if (carSpeed+ACC_STEP >= MAXC_SPD)
+        fuelGauge-=CAR_CONST::FUEL_STEP;
+    if (carSpeed+CAR_CONST::ACC_STEP >= CAR_CONST::MAXC_SPD)
     {
-        carSpeed = MAXC_SPD;
+        carSpeed = CAR_CONST::MAXC_SPD;
         return ;
     }
-    carSpeed += ACC_STEP;
+    carSpeed += CAR_CONST::ACC_STEP;
 }
 
 
 void Car::Break()
 {
-    if (carSpeed<BRK_STEP)
+    if (carSpeed<CAR_CONST::BRK_STEP)
     {
         carSpeed =0;
         return ;
     }
-    carSpeed -= BRK_STEP;
+    carSpeed -= CAR_CONST::BRK_STEP;
 }
+
+
 
 int main(void)
 {
-    Car run99 = {"run99", 100, 0};
+    Car run99;
+    run99.InitMembers("run99", 100);
+    run99.Accel();
+    run99.Accel();
     run99.Accel();
     run99.ShowCarState();
     run99.Break();
     run99.ShowCarState();
+    return 0;
 }
