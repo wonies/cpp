@@ -26,6 +26,7 @@ int main(void)
 
     ptr1 = &num1;
     ptr2 = &num2;
+    
     swap(ptr1, ptr2);
 
     cout << "val1: "<<ptr1<<endl;

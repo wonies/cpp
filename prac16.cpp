@@ -37,7 +37,6 @@ void Accel(Car &car)
 }
 
 
-
 void Break(Car &car)
 {
     if (car.carSpeed<BRK_STEP)
